@@ -33,6 +33,48 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+
+    @Override
+    public String toString() {
+        if((getName() == null || getName().equals(""))
+                && (getEmployer()== null || getEmployer().getValue().equals(""))
+                && (getLocation()==null || getLocation().getValue().equals(""))
+                && (getPositionType()==null || getPositionType().getValue().equals(""))
+                && (getCoreCompetency()==null || getCoreCompetency().getValue().equals(""))){
+            return "\nOOPS! This job does not seem to exist.\n";
+        }
+        String name = this.getName();
+        String employer = this.getEmployer().getValue();
+        String location = this.getLocation().getValue();
+        String positionType = this.getPositionType().getValue();
+        String coreCompetency = this.getCoreCompetency().getValue();
+
+        if(name == null || name.equals("")){
+            name = "Data not available";
+        }
+        if(employer == null || employer.equals("")){
+            employer = "Data not available";
+        }
+        if(location == null || location.equals("")){
+            location = "Data not available";
+        }
+        if(positionType == null || positionType.equals("")){
+            positionType = "Data not available";
+        }
+        if(coreCompetency == null || coreCompetency.equals("")){
+            coreCompetency = "Data not available";
+        }
+        return "\n" +
+                "ID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency +
+                "\n\n";
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
